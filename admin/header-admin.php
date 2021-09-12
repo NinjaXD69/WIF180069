@@ -115,6 +115,10 @@ include("../session.php");
                   <i class="far fa-circle nav-icon"></i>
                   <p>Backup/Restore</p>
                 </a>
+                <a href="keyincourse.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Key In Course Data</p>
+                </a>
           </li>
         </ul>
       </nav>
