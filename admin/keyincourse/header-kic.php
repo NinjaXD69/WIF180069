@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-include("../session.php");
+include("../../session.php");
 ?>
 <head>
   <meta charset="utf-8">
@@ -8,15 +8,15 @@ include("../session.php");
   <title>E-Attendance@UM | Dashboard</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <link rel="stylesheet" href="../plugins/jqvmap/jqvmap.min.css">
-  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
-  <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
  
 
 
@@ -40,7 +40,7 @@ include("../session.php");
     <ul class="navbar-nav ml-auto">
 	  
 	  <li class="nav-item dropdown">
-        <a class="nav-link" href="../logout.php">
+        <a class="nav-link" href="../../logout.php">
           SignOut
         </a>
       </li>
@@ -82,14 +82,14 @@ include("../session.php");
 
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="main2.php" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">E-Attendance@UM</span>
     </a>
 
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-           <img src="img/admin-image.jpg" class="img-circle elevation-2" alt="User Image">
+           <img src="../img/admin-image.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Jalaluddin &nbsp; | &nbsp;Admin</a>
@@ -111,11 +111,11 @@ include("../session.php");
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
    
           <li class="nav-item">
-                <a href="dbbackup/scheduler.php" class="nav-link">
+                <a href="../dbbackup/scheduler.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Backup/Restore</p>
                 </a>
-                <a href="keyincourse/keyincourse.php" class="nav-link">
+                <a href="keyincourse.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Key In Course Data</p>
                 </a>

@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
-include("../session.php");
-include('../config.php');
+include("../../session.php");
+include('../../config.php');
 ?>
 
 <!DOCTYPE html>
@@ -10,12 +10,12 @@ include('../config.php');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Key In Course Data | E-Attendance@UM</title>
-    <link rel = "icon" href ="../sources/um_logo.png" type = "image/x-icon">
+    <link rel = "icon" href ="../../sources/um_logo.png" type = "image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.8/css/fixedHeader.dataTables.min.css">
-    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
     <style>
     thead input 
     {
@@ -34,7 +34,7 @@ include('../config.php');
   </head>
   <body onload="f1()"; class="hold-transition sidebar-mini" style="background-color:black;">
     <?php
-    include("header-admin.php");
+    include("header-kic.php");
     ?>
     <div class="content-wrapper" style="background-color: black;">
       <section class="content-header" style="background-color: black; color:white;">
