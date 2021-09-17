@@ -95,7 +95,7 @@ include('../../config.php');
                                 <input type="text" name="classtime" class="form-control">
                             </div>
                             <div class="form-group">
-                                <button onclick="location.href='keyincourse.php'" type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>

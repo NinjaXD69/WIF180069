@@ -28,15 +28,14 @@
 						$query = "INSERT INTO course (courseid,CourseType,CourseCode,CourseName,ClassDetail,ClassDay,ClassTime) VALUES ('$courseid','$coursetype','$coursecode','$coursename','$classdetail','$classday','$classtime')";
 						if ($sql = $this->conn->query($query)) {
 							echo "<script>alert('records added successfully');</script>";
-							echo "<script>window.location.href = 'index.php';</script>";
+							echo "<script>window.location.href = 'keyincourse.php';</script>";
 						}else{
 							echo "<script>alert('failed');</script>";
-							echo "<script>window.location.href = 'index.php';</script>";
+							echo "<script>window.location.href = 'keyincourse.php';</script>";
 						}
-
 					}else{
 						echo "<script>alert('empty');</script>";
-						echo "<script>window.location.href = 'index.php';</script>";
+						echo "<script>window.location.href = 'insertcourse.php';</script>";
 					}
 				}
 			}
@@ -53,5 +52,51 @@
 			return $data;
 		}
 
-    }
+		public function edit($id){
+			$data = null;
+			$query = "SELECT * FROM course WHERE courseid = '$id'";
+			if ($sql = $this->conn->query($query)) {
+				while($row = $sql->fetch_assoc()){
+					$data = $row;
+				}
+			}
+			return $data;
+		}
+
+		public function update($data){
+			if (isset($_POST['update'])) {
+				if (isset($_POST['courseid']) && isset($_POST['coursetype']) && isset($_POST['coursecode']) && isset($_POST['coursename']) && isset($_POST['classdetail']) && isset($_POST['classday']) && isset($_POST['classtime'])) {
+					if (!empty($_POST['courseid']) && !empty($_POST['coursetype']) && !empty($_POST['coursecode']) && !empty($_POST['coursename']) && !empty($_POST['classdetail']) && !empty($_POST['classday']) && !empty($_POST['classtime'])) {
+						$courseid = $_POST['courseid'];
+						$coursetype = $_POST['coursetype'];
+						$coursecode = $_POST['coursecode'];
+						$coursename = $_POST['coursename'];
+                        $classdetail = $_POST['classdetail'];
+                        $classday = $_POST['classday'];
+                        $classtime = $_POST['classtime'];
+						$query = "UPDATE course SET courseid='$courseid', CourseType='$coursetype', CourseCode='$coursecode', CourseName='$coursename', ClassDetail='$classdetail', ClassDay='$classday', ClassTime='$classtime' WHERE courseid='$courseid '";
+						if ($sql = $this->conn->query($query)) {
+							echo "<script>alert('records added successfully');</script>";
+							echo "<script>window.location.href = 'keyincourse.php';</script>";
+						}else{
+							echo "<script>alert('failed');</script>";
+							echo "<script>window.location.href = 'keyincourse.php';</script>";
+						}
+					}	else{
+							echo "<script>alert('empty');</script>";
+							echo "<script>window.location.href = 'insertcourse.php';</script>";
+						}
+    			}
+			}
+		}
+
+		public function delete($id){
+			$query = "DELETE FROM course where courseid = '$id'";
+			if ($sql = $this->conn->query($query)) {
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
 ?>
