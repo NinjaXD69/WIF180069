@@ -42,12 +42,12 @@ include('../../config.php');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 style="font-family:Helvetica; font-weight:bold;">Key In Course Data</h1>
+              <h1 style="font-family:Helvetica; font-weight:bold;">Insert New Course</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" style="color:white">Key In Course Data</li>
+                <li class="breadcrumb-item active" style="color:white">Insert New Course</li>
               </ol>
             </div>
           </div>
@@ -59,54 +59,46 @@ include('../../config.php');
             <div class="col-12">
               <div class="card" style="background: white; color:black; border-radius: 15px;">
                 <div class="card-body">
-                    <div>
-                      <button onclick="location.href='insertcourse.php'" type="submit" name="submit"class="btn btn-primary">Insert New Course</button>
+                    <div class="col-md-4 mx-auto">
+                        <?php
+                            include("../dbaconfig.php");
+                            $dba = new Dba();
+                            $insert = $dba->insert();
+                        ?>
+                        <form action="" method="post">
+                            <div class="form-group">
+                                <label for="">Course ID</label>
+                                <input type="number" name="courseid" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Course Type</label>
+                                <input type="number" name="coursetype" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Course Code</label>
+                                <input type="text" name="coursecode" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Course Name</label>
+                                <input type="text" name="coursename" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Class Detail</label>
+                                <input type="text" name="classdetail" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Class Day</label>
+                                <input type="text" name="classday" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Class Time</label>
+                                <input type="text" name="classtime" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <button onclick="location.href='keyincourse.php'" type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
                     </div>
-                  <br>
-                  <table id="example1" class="table table-striped" style="background: white; color:black;">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th>ID</th>
-                        <th>Course Code</th>
-                        <th>Course Name</th>
-                        <th>Class Detail</th>
-                        <th>Class Day</th>
-                        <th>Class Time</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                        include("../dbaconfig.php");
-                        $dba = new Dba();
-                        $rows = $dba->fetch();
-                        $i = 1;
-                        if(!empty($rows)){
-                          foreach($rows as $row){ 
-                      ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $row['CourseCode']; ?></td>
-                        <td><?php echo $row['CourseName']; ?></td>
-                        <td><?php echo $row['ClassDetail']; ?></td>
-                        <td><?php echo $row['ClassDay']; ?></td>
-                        <td><?php echo $row['ClassTime']; ?></td>
-                        <td>
-                          <a href="read.php?id=<?php echo $row['courseid']; ?>" class="badge badge-info">Read</a>
-                          <a href="delete.php?id=<?php echo $row['courseid']; ?>" class="badge badge-danger">Delete</a>
-                          <a href="edit.php?id=<?php echo $row['courseid']; ?>" class="badge badge-success">Edit</a>
-                        </td>
-                      </tr>
-                      <?php
-                        }
-                      }else{
-                        echo "no data";
-                    }
-                      ?>
-            </tbody>
-                    <tfoot>
-                    </tfoot>
-                  </table>
                 </div>
               </div>
             </div>
