@@ -90,12 +90,43 @@
 			}
 		}
 
+		public function check($id){
+			$query = "SELECT * FROM course WHERE courseid = '$id'";
+			if ($sql = $this->conn->query($query)) {
+				return true;
+			}else{
+				return false;
+			}
+		}
+
 		public function delete($id){
 			$query = "DELETE FROM course where courseid = '$id'";
 			if ($sql = $this->conn->query($query)) {
 				return true;
 			}else{
 				return false;
+			}
+		}
+
+		public function insertcsv($courseid, $coursetype, $coursecode, $coursename, $classdetail, $classday, $classtime){
+			$query = "INSERT INTO course (courseid,CourseType,CourseCode,CourseName,ClassDetail,ClassDay,ClassTime) VALUES ('$courseid','$coursetype','$coursecode','$coursename','$classdetail','$classday','$classtime')";
+			if ($sql = $this->conn->query($query)) {
+				echo "<script>alert('records added successfully');</script>";
+				echo "<script>window.location.href = 'keyincourse.php';</script>";
+			}else{
+				echo "<script>alert('failed');</script>";
+				echo "<script>window.location.href = 'keyincourse.php';</script>";
+			}
+		}
+
+		public function updatecsv($courseid, $coursetype, $coursecode, $coursename, $classdetail, $classday, $classtime){
+			$query = "UPDATE course SET courseid = '$courseid', CourseType = '$coursetype', CourseCode = '$coursecode', CourseName = '$coursename', ClassDetail = '$classdetail', ClassDay = '$classday', ClassTime = '$classtime' WHERE courseid='$courseid '";
+			if ($sql = $this->conn->query($query)) {
+				echo "<script>alert('records added successfully');</script>";
+				echo "<script>window.location.href = 'keyincourse.php';</script>";
+			}else{
+				echo "<script>alert('failed');</script>";
+				echo "<script>window.location.href = 'keyincourse.php';</script>";
 			}
 		}
 	}

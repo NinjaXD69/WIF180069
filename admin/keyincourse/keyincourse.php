@@ -59,9 +59,23 @@ include('../../config.php');
             <div class="col-12">
               <div class="card" style="background: white; color:black; border-radius: 15px;">
                 <div class="card-body">
-                    <div>
-                      <button onclick="location.href='insertcourse.php'" type="submit" name="submit"class="btn btn-primary">Insert New Course</button>
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <button onclick="location.href='insertcourse.php'" type="submit" name="submit"class="btn btn-primary">Insert New Course</button>
+                      </div>
+                      <form action="importcourse.php" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                          <div class="col-md-7">
+                            <input type="file" name="file"> 
+                          </div>
+                          <div class="col-md-4">                    
+                            <input type="submit" class="btn btn-info" name="import" value="IMPORT">
+                          </div>
+                        </div>
+                      </form> 
                     </div>
+                  </div>                                                             
                   <br>
                   <table id="example1" class="table table-striped" style="background: white; color:black;">
                     <thead class="thead-dark">
@@ -92,17 +106,17 @@ include('../../config.php');
                         <td><?php echo $row['ClassDay']; ?></td>
                         <td><?php echo $row['ClassTime']; ?></td>
                         <td>
-                          <a href="deletecourse.php?id=<?php echo $row['courseid']; ?>" class="badge badge-danger">Delete</a>
                           <a href="editcourse.php?id=<?php echo $row['courseid']; ?>" class="badge badge-success">Edit</a>
+                          <a href="deletecourse.php?id=<?php echo $row['courseid']; ?>" class="badge badge-danger">Delete</a>
                         </td>
                       </tr>
                       <?php
                         }
                       }else{
                         echo "no data";
-                    }
+                      }
                       ?>
-            </tbody>
+                    </tbody>
                     <tfoot>
                     </tfoot>
                   </table>
@@ -137,20 +151,21 @@ include('../../config.php');
     <script src="../../dist/js/adminlte.min.js"></script> 
     <script src="../../dist/js/demo.js"></script>
     <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": true, "autoWidth": false,
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script> 
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true, "lengthChange": true, "autoWidth": false,
+          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false,
+          "responsive": true,
+        });
+      });
+    </script> 
   </body>
 </html>
