@@ -2,6 +2,69 @@
 error_reporting( 0 );
 include( "../session.php" );
 include( '../config.php' );
+if(isset($_POST['submit']))
+{
+    if(!empty($_POST['FCC'])) 
+    {
+        $courseid = $_POST['FCC'];
+        $query = "SELECT * FROM course WHERE courseid = $courseid";
+        $result = mysqli_query($mysqli, $query);
+        $row = mysqli_fetch_array($result);
+        $acc_id = $loggedin_id;
+        $coursecode = $row[2];
+        $coursename = $row[3];
+        $classdetail = $row[4];
+        $classday = $row[5];
+        $classtime = $row[6];
+        $queryf = "INSERT INTO lecturer_course(register_id_lecturer,acc_id,CourseCode,CourseName,ClassDetail,ClassDay,ClassTime) values('$courseid','$acc_id','$coursecode','$coursename','$classdetail','$classday','$classtime')";
+        $resultf = mysqli_query($mysqli, $queryf);
+    }
+    elseif(!empty($_POST['PCC'])) 
+    {
+        $courseid = $_POST['PCC'];
+        $query = "SELECT * FROM course WHERE courseid = $courseid";
+        $result = mysqli_query($mysqli, $query);
+        $row = mysqli_fetch_array($result);
+        $acc_id = $loggedin_id;
+        $coursecode = $row[2];
+        $coursename = $row[3];
+        $classdetail = $row[4];
+        $classday = $row[5];
+        $classtime = $row[6];
+        $queryf = "INSERT INTO lecturer_course(register_id_lecturer,acc_id,CourseCode,CourseName,ClassDetail,ClassDay,ClassTime) values('$courseid','$acc_id','$coursecode','$coursename','$classdetail','$classday','$classtime')";
+        $resultf = mysqli_query($mysqli, $queryf);
+    }
+    elseif(!empty($_POST['FEC'])) 
+    {
+        $courseid = $_POST['FEC'];
+        $query = "SELECT * FROM course WHERE courseid = $courseid";
+        $result = mysqli_query($mysqli, $query);
+        $row = mysqli_fetch_array($result);
+        $acc_id = $loggedin_id;
+        $coursecode = $row[2];
+        $coursename = $row[3];
+        $classdetail = $row[4];
+        $classday = $row[5];
+        $classtime = $row[6];
+        $queryf = "INSERT INTO lecturer_course(register_id_lecturer,acc_id,CourseCode,CourseName,ClassDetail,ClassDay,ClassTime) values('$courseid','$acc_id','$coursecode','$coursename','$classdetail','$classday','$classtime')";
+        $resultf = mysqli_query($mysqli, $queryf);
+    }
+    elseif(!empty($_POST['SEC'])) 
+    {
+        $courseid = $_POST['SEC'];
+        $query = "SELECT * FROM course WHERE courseid = $courseid";
+        $result = mysqli_query($mysqli, $query);
+        $row = mysqli_fetch_array($result);
+        $acc_id = $loggedin_id;
+        $coursecode = $row[2];
+        $coursename = $row[3];
+        $classdetail = $row[4];
+        $classday = $row[5];
+        $classtime = $row[6];
+        $queryf = "INSERT INTO lecturer_course(register_id_lecturer,acc_id,CourseCode,CourseName,ClassDetail,ClassDay,ClassTime) values('$courseid','$acc_id','$coursecode','$coursename','$classdetail','$classday','$classtime')";
+        $resultf = mysqli_query($mysqli, $queryf);
+    }
+}
 ?>
 <?php include 'profile_get_accessInfo.php'; ?>
 <?php include 'profile_get_profileInfo.php'; ?>
@@ -11,7 +74,7 @@ include( '../config.php' );
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>My Profile | E-Attendance@UM</title>
-        <link rel = "icon" href ="../sources/um_logo.png" type = "image/x-icon">
+        <link rel ="icon" href ="../sources/um_logo.png" type = "image/x-icon">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -46,12 +109,107 @@ include( '../config.php' );
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">                            
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                        <div class="col-md-4">
+                            <h5>Faculty Core Courses</h5>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <?php
+                                    $query1 = "SELECT * FROM `course` WHERE CourseType = 1";
+                                    $result1 = mysqli_query($mysqli, $query1);
+                                    ?>
+                                    <select name="FCC" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">                            
+                                        <?php while($row1 = mysqli_fetch_array($result1)):;?>
+                                        <option value="<?php echo $row1[0]; ?>"><?php echo $row1[2];?>&nbsp<?php echo $row1[3];?>&nbsp<?php echo $row1[4];?></option>
+                                        <?php endwhile;?>
+                                    </select>
+                                </div>
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                            <br>
+                            <h5>Program Core Courses</h5>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <?php
+                                    $query2 = "SELECT * FROM `course` WHERE CourseType = 2";
+                                    $result2 = mysqli_query($mysqli, $query2);
+                                    ?>
+                                    <select name="PCC" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">                            
+                                        <?php while($row2 = mysqli_fetch_array($result2)):;?>
+                                        <option value="<?php echo $row2[0];?>"><?php echo $row2[2];?>&nbsp<?php echo $row2[3];?>&nbsp<?php echo $row2[4];?></option>
+                                        <?php endwhile;?>
+                                    </select>
+                                </div>
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                            <br>
+                            <h5>Faculty Elective Courses</h5>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <?php
+                                    $query3 = "SELECT * FROM `course` WHERE CourseType = 3";
+                                    $result3 = mysqli_query($mysqli, $query3);
+                                    ?>
+                                    <select  name="FEC" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">                            
+                                        <?php while($row3 = mysqli_fetch_array($result3)):;?>
+                                        <option value="<?php echo $row3[0];?>"><?php echo $row3[2];?>&nbsp<?php echo $row3[3];?>&nbsp<?php echo $row3[4];?></option>
+                                        <?php endwhile;?>
+                                    </select>
+                                </div>
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                            <br>
+                            <h5>Specialization Elective Courses</h5>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <?php
+                                    $query4 = "SELECT * FROM `course` WHERE CourseType = 4";
+                                    $result4 = mysqli_query($mysqli, $query4);
+                                    ?>
+                                    <select  name="SEC" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">                            
+                                        <?php while($row4 = mysqli_fetch_array($result4)):;?>
+                                        <option value="<?php echo $row4[0];?>"><?php echo $row4[2];?>&nbsp<?php echo $row4[3];?>&nbsp<?php echo $row4[4];?></option>
+                                        <?php endwhile;?>
+                                    </select>
+                                </div>
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>     
+                        <div class="col-md-8">
+                            <table id="example1" class="table table-striped" style="background: white; color:black;">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Class Detail</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                    $queryt = "SELECT * FROM lecturer_course WHERE acc_id=$loggedin_id";
+                                    $resultt = mysqli_query($mysqli, $queryt);
+                                    $i = 1;
+                                    while($rows = mysqli_fetch_array($resultt)){ 
+                                ?>
+                                <tr>
+                                    <td><?php echo $i++; ?></td>
+                                    <td><?php echo $rows['CourseCode']; ?></td>
+                                    <td><?php echo $rows['CourseName']; ?></td>
+                                    <td><?php echo $rows['ClassDetail']; ?></td>
+                                    <td>
+                                    <a href="editcourse.php?id=<?php echo $row['courseid']; ?>" class="badge badge-success">Edit</a>
+                                    <a href="deletecourse.php?id=<?php echo $row['courseid']; ?>" class="badge badge-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -66,8 +224,21 @@ include( '../config.php' );
         $.widget.bridge('uibutton', $.ui.button)
     </script> 
     <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> 
+    
     <script src="../plugins/chart.js/Chart.min.js"></script> 
     <script src="../plugins/sparklines/sparkline.js"></script> 
+    <script src="../plugins/datatables/jquery.dataTables.min.js"></script> 
+    <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script> 
+    <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> 
+    <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> 
+    <script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script> 
+    <script src="../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script> 
+    <script src="../plugins/jszip/jszip.min.js"></script> 
+    <script src="../plugins/pdfmake/pdfmake.min.js"></script> 
+    <script src="../plugins/pdfmake/vfs_fonts.js"></script> 
+    <script src="../plugins/datatables-buttons/js/buttons.html5.min.js"></script> 
+    <script src="../plugins/datatables-buttons/js/buttons.print.min.js"></script> 
+    <script src="../plugins/datatables-buttons/js/buttons.colVis.min.js"></script> 
     <script src="../plugins/jqvmap/jquery.vmap.min.js"></script> 
     <script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script> 
     <script src="../plugins/jquery-knob/jquery.knob.min.js"></script> 
@@ -79,4 +250,20 @@ include( '../config.php' );
     <script src="../dist/js/adminlte.js"></script> 
     <script src="../dist/js/demo.js"></script> 
     <script src="../dist/js/pages/dashboard.js"></script>
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true, "lengthChange": true, "autoWidth": false
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false,
+          "responsive": true,
+        });
+      });
+    </script> 
 </html>
