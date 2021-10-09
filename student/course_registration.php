@@ -29,13 +29,13 @@ if(isset($_POST['submit']))
     $classdetail = $row[4];
     $classday = $row[5];
     $classtime = $row[6];
-    $queryf = "INSERT INTO lecturer_course(register_id_lecturer,acc_id,CourseCode,CourseName,ClassDetail,ClassDay,ClassTime) values('$courseid','$acc_id','$coursecode','$coursename','$classdetail','$classday','$classtime')";
+    $queryf = "INSERT INTO student_course(register_id_student,acc_id,CourseCode,CourseName,ClassDetail,ClassDay,ClassTime) values('$courseid','$acc_id','$coursecode','$coursename','$classdetail','$classday','$classtime')";
     $resultf = mysqli_query($mysqli, $queryf);
 }
 if(isset($_GET['del']))
     {
         $courseid = $_GET['id'];
-        $queryd = "DELETE from lecturer_course where register_id_lecturer = $courseid";
+        $queryd = "DELETE from student_course where register_id_student = $courseid";
         $resultd = mysqli_query($mysqli, $queryd);
         $_SESSION['delmsg']="Course deleted !!";
     }
@@ -62,7 +62,7 @@ if(isset($_GET['del']))
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <?php
-        include( "header_lecturer.php" );
+        include( "header_student.php" );
         ?>
         <div class="content-wrapper">
             <section class="content-header" style="color:black;">
@@ -161,7 +161,7 @@ if(isset($_GET['del']))
                                 </thead>
                                 <tbody>
                                 <?php
-                                    $queryt = "SELECT * FROM lecturer_course WHERE acc_id=$loggedin_id";
+                                    $queryt = "SELECT * FROM student_course WHERE acc_id=$loggedin_id";
                                     $resultt = mysqli_query($mysqli, $queryt);
                                     $i = 1;
                                     while($rows = mysqli_fetch_array($resultt)){ 
@@ -172,7 +172,7 @@ if(isset($_GET['del']))
                                     <td><?php echo $rows['CourseName']; ?></td>
                                     <td><?php echo $rows['ClassDetail']; ?></td>
                                     <td>
-                                    <a href="course_registration.php?id=<?php echo $rows['register_id_lecturer']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><button class="btn btn-danger">Delete</button></a>
+                                    <a href="course_registration.php?id=<?php echo $rows['register_id_student']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><button class="btn btn-danger">Delete</button></a>
                                     </td>
                                 </tr>
                                 <?php

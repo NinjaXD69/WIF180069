@@ -68,21 +68,42 @@ $profile_pic = $rowview[ "profile_pic" ];
     </div>
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item"> <a href="profile.php" class="nav-link"> <i class="nav-icon fa fa-user"></i>
-          <p>Manage Profile</p>
-          </a> </li>
-        <li class="nav-item"> <a href="lecturer_browse.php" class="nav-link"> <i class="nav-icon fa fa-users"></i>
-          <p>View Lecturers Profile</p>
-          </a> </li>
-        <li class="nav-item"> <a href="feedback.php" class="nav-link"> <i class="nav-icon fa fa-comments"></i>
-          <p>Manage Feedbacks</p>
-          </a> </li>
-        <li class="nav-item"> <a href="absence.php" class="nav-link"> <i class="nav-icon fa fa-hourglass"></i>
-          <p>Manage Absence</p>
-          </a> </li>
-        <li class="nav-item"> <a href="attendance.php" class="nav-link"> <i class="nav-icon fa fa-check-square"></i>
-          <p>Track Attendance</p>
-          </a> </li>
+        <li class="nav-item"> 
+          <a href="profile.php" class="nav-link"> 
+            <i class="nav-icon fa fa-user"></i>
+            <p>Manage Profile</p>
+          </a> 
+        </li>
+        <li class="nav-item"> 
+          <a href="course_registration.php" class="nav-link"> 
+            <i class="nav-icon fa fa-registered"></i>
+            <p>Course Registration</p>
+          </a> 
+        </li>
+        <li class="nav-item"> 
+          <a href="lecturer_browse.php" class="nav-link"> 
+            <i class="nav-icon fa fa-users"></i>
+            <p>View Lecturers Profile</p>
+          </a> 
+        </li>
+        <li class="nav-item"> 
+          <a href="feedback.php" class="nav-link"> 
+            <i class="nav-icon fa fa-comments"></i>
+            <p>Manage Feedbacks</p>
+          </a> 
+        </li>
+        <li class="nav-item"> 
+          <a href="absence.php" class="nav-link"> 
+            <i class="nav-icon fa fa-hourglass"></i>
+            <p>Manage Absence</p>
+          </a> 
+        </li>
+        <li class="nav-item"> 
+          <a href="attendance.php" class="nav-link"> 
+            <i class="nav-icon fa fa-check-square"></i>
+            <p>Track Attendance</p>
+          </a> 
+        </li>
       </ul>
     </nav>
   </div>
